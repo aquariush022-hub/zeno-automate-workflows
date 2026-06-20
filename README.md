@@ -52,6 +52,8 @@ The user types a natural language query like "find cafes in Pune." An AI Agent n
 
 **Stack:** Chat Trigger · AI Agent · Serper API · HTTP Request · JavaScript Code · Google Sheets
 
+![AI Business Lead Scraper workflow canvas](scraper.png)
+
 ---
 
 ### Workflow 2 — Lead Email Enricher
@@ -72,6 +74,8 @@ Reads all rows from the Google Sheets output of Workflow 1 using a Google Sheets
 
 **Stack:** Google Sheets · Loop Over Items · HTTP Request · JavaScript Code · Regex
 
+![Lead Email Enricher workflow canvas](enricher.png)
+
 ---
 
 ### Workflow 3 — AI Cold Email Sender
@@ -91,6 +95,8 @@ Reads the enriched Google Sheets, filters out rows where the email column is emp
 - Filter node placed before the AI call to skip empty emails — avoids wasting Groq API calls on leads the enricher couldn't find emails for
 
 **Stack:** Google Sheets · Filter · HTTP Request (Groq) · JavaScript Code · Gmail API
+
+![AI Cold Email Sender workflow canvas](Cold%20Email%20Sender.png)
 
 ---
 
@@ -134,7 +140,7 @@ Gmail Trigger node polls the inbox every 60 seconds for new messages. Each email
 
 ## Notes
 
-- All workflows deployed on Railway using Docker
+- All workflows deployed on Railway (n8n self-hosted)
 - n8n instance: `n8n-production-96112.up.railway.app`
 - Screenshots and execution logs available on request
 - Workflow JSON exports available on request for verified clients
